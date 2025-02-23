@@ -1,5 +1,5 @@
 namespace TrafficLight;
-public static class DictionaryVersionRunner {
+public class DictionaryVersionRunner: IRunner {
     private static readonly Dictionary<string, Settings> _trafficLight = new() {
         { "go", new Settings { State = "Green", Delay = TimeSpan.FromSeconds(4) } },
         { "attention", new Settings { State = "Amber", Delay = TimeSpan.FromSeconds(1) } },
@@ -7,12 +7,12 @@ public static class DictionaryVersionRunner {
     };
 
 
-    static public async Task Run(CancellationTokenSource cts) {
+    public async Task Run(CancellationTokenSource cts) {
         Console.WriteLine($"{Environment.NewLine}DictionaryVersionRunner.Run() execution");
         await DisplayLight(cts.Token);
     }
 
-    static async Task DisplayLight(CancellationToken token) {
+    private async Task DisplayLight(CancellationToken token) {
         try {
             Console.WriteLine($"{Environment.NewLine}");
             while (true) {

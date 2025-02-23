@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "swile", "swile.csproj", "{C44A8DC8-AD96-4F70-8E3D-71337DE2559B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrafficLight", "TrafficLight.csproj", "{C44A8DC8-AD96-4F70-8E3D-71337DE2559B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
