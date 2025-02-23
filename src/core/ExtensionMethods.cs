@@ -28,4 +28,16 @@ public static class ExtensionMethods {
 
         return optionValue;
     }
+
+    public static CancellationToken GetLinkedTokenSource(this CancellationToken token) {
+        using var cts = CancellationTokenSource.CreateLinkedTokenSource(token);
+        return cts.Token;
+    }
+
+    public static void ValidateCancellationRequest(this CancellationToken token) {
+        if (token.IsCancellationRequested) {
+            Console.WriteLine("Finishing gracefully by Control + C keys");
+            Environment.Exit(0);
+        }
+    }
 }

@@ -30,8 +30,8 @@ public static class CommandLineHandler {
 
     private static async Task RunSelectedVersion(string version, CancellationTokenSource cts) {
         Dictionary<string, IRunner> options = new() {
-            {"v2", new EnumVersionRunner()},
             {"v1", new DictionaryVersionRunner()},
+            {"v2", new EnumVersionRunner()},
         };
 
         if (!options.TryGetValue(version, out var result)) {
