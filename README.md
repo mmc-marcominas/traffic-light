@@ -43,8 +43,8 @@ _Below is an example of how you can instruct your audience on installing and set
 
 ## Roadmap
 
-- [ ] Add v1 with dictionary version
-- [ ] Add v2 scaffold and a command line handler
+- [x] Add v1 with dictionary version
+- [x] Add v2 scaffold and a command line handler
 - [ ] Add implements v2 with enum approach
     - [ ] basic
     - [ ] starting when it was paused
