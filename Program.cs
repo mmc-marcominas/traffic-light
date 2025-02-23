@@ -5,7 +5,7 @@ using TrafficLight;
 var cts = new CancellationTokenSource();
 cts.SetCancelKeyPress();
 
-await DictionaryVersionRunner.Run(cts);
+await CommandLineHandler.Handle(args, cts);
 
 Console.WriteLine($"{Environment.NewLine}Disponsing cancelation source");
 cts.Dispose();
