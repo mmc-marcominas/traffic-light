@@ -3,6 +3,8 @@ using System.Text.Json.Serialization;
 namespace TrafficLight;
 public class ApplicationSettings
 {
+    public delegate Task RefreshEventHandler(ApplicationSettings s);
+    public static event RefreshEventHandler? RefreshAsync;
     public readonly static string Filename = "settings.json";
 
     [JsonPropertyName("action")]
@@ -16,4 +18,11 @@ public class ApplicationSettings
 
     [JsonPropertyName("resumedAt")]
     public string? ResumedAt { get; set; }
+
+    public void Load() {
+        if (RefreshAsync == null) {
+            throw new Exception("RefreshSettingsAsync handler must be set before");
+        }
+        RefreshAsync(this);
+    }
 }

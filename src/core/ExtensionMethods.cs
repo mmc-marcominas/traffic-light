@@ -1,3 +1,6 @@
+using System.Text;
+using System.Text.Json;
+
 namespace TrafficLight;
 
 public static class ExtensionMethods {
@@ -29,6 +32,21 @@ public static class ExtensionMethods {
         return optionValue;
     }
 
+    public static void Refresh(this ApplicationSettings settings, string filename) {
+        var jsonSettings = File.ReadAllText(filename, Encoding.UTF8);
+
+        if (string.IsNullOrWhiteSpace(jsonSettings)) {
+            return;
+        }
+
+        var content =  JsonSerializer.Deserialize<ApplicationSettings>(jsonSettings);
+        if (content != null) {
+            settings.Type = content.Type;
+            settings.Action = content.Action;
+            settings.ResumedAt = content.ResumedAt;
+        }
+    }
+
     public static CancellationToken GetLinkedTokenSource(this CancellationToken token) {
         using var cts = CancellationTokenSource.CreateLinkedTokenSource(token);
         return cts.Token;
@@ -39,5 +57,11 @@ public static class ExtensionMethods {
             Console.WriteLine("Finishing gracefully by Control + C keys");
             Environment.Exit(0);
         }
+    }
+
+    public static void UpdateSettings(this ApplicationSettings settings, string filename) {
+        var options = new JsonSerializerOptions { WriteIndented = true,  };
+        var json = JsonSerializer.Serialize(settings, options);
+        File.WriteAllText(filename, json);
     }
 }
