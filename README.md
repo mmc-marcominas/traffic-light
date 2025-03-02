@@ -47,7 +47,8 @@ _Below is an example of how you can instruct your audience on installing and set
 - [x] Add v2 scaffold and a command line handler
 - [-] Add implements v2 with enum approach
     - [x] basic
-    - [ ] starting when it was paused
+    - [x] start from it was paused
+    - [x] start passing initial state
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

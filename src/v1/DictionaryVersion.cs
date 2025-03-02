@@ -12,6 +12,10 @@ public class DictionaryVersionRunner: IRunner {
         await DisplayLight(cts.Token);
     }
 
+    public void SetInitialState(string type, CancellationTokenSource cts) {
+        Console.WriteLine($"{Environment.NewLine}DictionaryVersionRunner not implements state execution control");
+    }
+
     private async Task DisplayLight(CancellationToken token) {
         try {
             Console.WriteLine($"{Environment.NewLine}");
