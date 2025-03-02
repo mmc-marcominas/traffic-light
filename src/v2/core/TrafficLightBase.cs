@@ -45,6 +45,8 @@ public class TrafficLightBase {
         Console.WriteLine($"{Environment.NewLine}");
         if (!string.IsNullOrWhiteSpace(settings.ResumedAt)) {
             ResumedAt = $"{settings.ResumedAt}";
+            settings.ResumedAt = null;
+            settings.UpdateSettings(ApplicationSettings.Filename);
         }
     }
 }
